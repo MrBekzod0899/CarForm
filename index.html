@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deliver Car</title>
+   <link rel="stylesheet" href="./css/bootstrap.min.css">
+   <link rel="stylesheet" href="./css/all.css">
+   
+   <link rel="stylesheet" href="./css/main.css">
+   <style>
+       *{
+           margin: 0;
+           padding: 0;
+           box-sizing: border-box;
+       }
+       .container{
+           height: 100vh;
+           margin: 0 !important;
+           padding: 0 !important;
+           box-sizing: border-box;
+       }
+       .row {
+           height: 100%;
+           
+       }
+       .row .col-md-9{
+           height: 100% !important;
+           margin: 0 !important;
+           padding: 0 !important;
+       }
+      
+       .row .card{
+           padding-bottom: 0 !important;
+           margin-bottom: 0 !important;
+           height: calc(100vh - 50px);
+       }
+       .number span{
+           font-style: bold;
+           font-weight: 600;
+           font-size: 26px;
+       }
+       .sign{
+           position: relative;
+       }
+       .sign .countryName{
+        position: absolute;
+        top: -20px;
+        padding: 0;
+        font-weight: 400;
+        font-size: 26px !important;
+        right: -50px;
+       }
+       .sign img{
+        padding: 0;
+        position: absolute;
+        bottom:-5px;
+        right: -52px; 
+        width: 30px !important;
+        height: 25px !important;
+       }
+       .card {
+           position: relative;
+           margin-bottom: 10px !important;
+       }
+       .card .info{
+           position: absolute !important;
+           right: 0px;
+           padding: 10px;
+           box-sizing: border-box;
+           top: 61px;
+           width: 50%;
+           height: calc(100% - 50px);
+           text-align: center;   
+       }
+       .col-md-9 .table th{
+           width: 40%;
+           margin: 10px auto;
+       }
+   </style>
+</head>
+
+<body>
+    <header>
+        <div class="container-fluid">
+        <div class="row pt-3">        
+            <div class="col-md-3 col-sm-12 col-12">
+                <div class="card mb-2" >
+                    <div class="card-header bg-success text-light">
+                        <h3>Form</h3>
+                    </div>
+                    <div class="card-body bg-secondary text-warning">
+                        <label for="region" >Choose the your region</label>
+                        <br>
+                        <select id="region" name="region" class="form-control">
+                            <option class="region" value="" readonly disabled selected>---</option>
+                            <option class="region" value="Toshkent">Toshkent</option>
+                            <option class="region" value="ToshkentVil">Toshkent vil</option>
+                            <option class="region" value="Jizzax">Jizzax</option>
+                            <option class="region" value="Sirdaryo">Sirdaryo</option>
+                            <option class="region" value="Samarqand">Samarqand</option>
+                            <option class="region" value="Andijon">Andijon</option>
+                            <option class="region" value="Farg'ona">Farg'ona</option>
+                            <option class="region" value="Namangan">Namangan</option>
+                            <option class="region"  value="Qashqadaryo">Qashqadaryo</option>
+                            <option class="region" value="Surxandaryo">Surxandaryo</option>
+                            <option class="region" value="Buxoro">Buxoro</option>
+                            <option class="region" value="Navoiy">Navoiy</option>
+                            <option class="region" value="Xorazm">Xorazm</option>
+                            <option class="region" value="Qoraqalpog'iston R">Qoraqalpog'iston</option>
+                        </select>
+                        <label for="cars" class="mt-3">Choose car type</label>
+                        <select id="cars" name="cars" class="form-control">
+                            <optgroup  label="car">
+                                <option value="" readonly disabled selected>---</option>
+                                <option value="Matiz">Matiz</option>
+                                <option value="Spark">Spark</option>
+                                <option value="Damas">Damas</option>
+                                <option value="Nexia">Nexia</option>
+                                <option value="Cobalt">Cobalt</option>
+                                <option value="Lacetti">Lacetti</option>
+                                <option value="Gentra">Gentra</option>
+                                <option value="Malibu">Malibu</option>
+                                <option value="Captiva">Captiva</option>
+                                <option value="Tahoe">Tahoe</option>
+                                <option value="TravilBlazer">TravilBlazer</option>
+                                <option value="Tricker">Tricker</option>
+                                <option value="Traverse">Traverse</option>
+                                <option value="Equinux">Equinux</option>
+                            </optgroup>
+                            <optgroup  label="Huge car">
+                                <option value="Kamaz">Kamaz</option>
+                                <option value="Zil">Zil</option>
+                                <option value="Isuze">Isuze</option>
+                                <option value="Man">Man</option>                            
+                            </optgroup>
+                        
+                        </select>
+
+                        <div class="form-inline mt-3 mb-3">
+                            <input class="m-1 People"  type="radio" name="People" id="Firm">
+                            <label for="codeFirm" class="mr-3">Firm</label> 
+                            <input class="m-1 " type="radio" name="People" id="Person">
+                            <label for="codePerson People" class="mr-3">Person</label>
+                            <p></p>
+                            <select id="codeFirm" name="codeFirm" class="form-control mt-2 mb-2 w-100 d-none">
+                                <option value="" disabled selected>---</option>
+                                <option value="AAA">AAA</option>
+                                <option value="PPP">PPP</option>
+                                <option value="DXX">DXX</option>
+                                <option value="YPP">YPP</option>
+                                <option value="BBB">BBB</option>
+                                <option value="DDD">DDD</option>
+                                <option value="FFF">FFF</option>
+                            </select>
+                            <select id="codePerson" name="codePerson" class="form-control mt-4 mb-4 w-100 d-none">
+                                <option value="" disabled selected>---</option>
+                                <option value="AB">AB</option>
+                                <option value="BB">BB</option>
+                                <option value="AC">AC</option>
+                                <option value="AD">AD</option>
+                                <option value="FC">FC</option>
+                                <option value="SA">SA</option>
+                                <option value="AX">AX</option>
+                                <option value="AB">AL</option>
+                                <option value="CA">CA</option>
+                                <option value="LH">LH</option>
+                                <option value="DE">DE</option>
+                                <option value="KZ">KZ</option>
+                                <option value="FF">FF</option>
+                                <option value="XA">XA</option>
+                                <option value="KI">KI</option>
+                                <option value="QI">QI</option>
+                                <option value="AK">AK</option>
+                            </select>
+                        </div>
+                        <div class="nomer">
+                            <button class="btn btn-primary text-light bestNum active">Best number</button>
+                            <button class="btn btn-primary text-light RandNum" >Free number</button>
+                            <br/>
+                            <p></p>
+                            <select name="nomer" id="nomer" class="form-control w-100">
+                                <option value="">---</option>
+                                <option value="777">777</option>
+                                <option value="111">111</option>
+                                <option value="222">222</option>
+                                <option value="333">333</option>
+                                <option value="444">444</option>
+                                <option value="555">555</option>
+                                <option value="666">666</option>
+                                <option value="888">888</option>
+                                <option value="999">999</option>
+                                <option value="000">000</option>
+                                <option value="001">001</option>
+                                <option value="002">002</option>
+                                <option value="003">003</option>
+                                <option value="004">004</option>
+                                <option value="005">005</option>
+                                <option value="006">006</option>
+                                <option value="007">007</option>
+                                <option value="008">008</option>
+                                <option value="009">009</option>
+                                <option value="123">123</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+            <div class="col-md-9 p-1 mb-1 col-sm-12 col-12" style="height: 100%;">
+                <div class="card">
+                    <div class="card-header text-center ">
+                        <h4 class="carName">Car Name</h4>
+                    </div>
+                    <div class="card-body " id="carImg" style="width:400px !important; height:300px !important" >
+                        <img  style="width:100% !important; height:80% !important" src="./images/caravatar3.png" class="carImg img-fluid" alt="No photo">
+                    </div>
+                      
+                    <div class="info">
+                        <h5>Car Info</h5>
+                       <table class="table table-striped table-bordered">
+                        <tbody class="tbody">
+                           <tr>
+                            <th>Car Name</th>
+                            <td class="carname"></td>
+                           </tr>
+                           <tr>
+                            <th>Car position</th>
+                            <td class="carPos"></td>
+                           </tr>
+                           <tr>
+                            <th>Car Year</th>
+                            <td class="carYear"></td>
+                           </tr>
+                           <tr>
+                            <th> Made in</th>
+                            <td class="carMade"> </td>
+                           </tr>
+                           <tr>
+                            <th> Color</th>
+                            <td class="carColor"></td>
+                           </tr>
+                           <tr>
+                            <th> Price</th>
+                            <td class="carPrice"></td>
+                           </tr>
+                           <tr>
+                            <th> Info</th>
+                            <td class="carInfo" style="font-size: 14px; overflow-x: scroll; width: 100%; height: 90px; display: block;"> </td>
+                           </tr>
+                        
+                        </tbody>
+                       </table>
+                       <div class="card-content text-left" >
+                        <h6 class="p-0 m-0">Car Number</h6>
+                        <div class="number pt-1 pb-1 text-left pl-4" style="width: 300px; border: 4px solid black;">
+                            <span id="reg" class="reg ">_ _</span>
+                            <span id="num1" class="num1 pl-2 ">_</span>
+                            <span class=" pl-2 numberCar ">_ _ _</span>
+                            <span class="pl-2 code2 ">_ _</span>
+                            <span class="pl-1 firmCar sign "><span class="countryName">uz</span> <img width="20px" height="20px" src="https://iconarchive.com/download/i49052/custom-icon-design/all-country-flag/Uzbekistan-Flag.ico" alt=""></span>
+                        </div>
+                    </div>
+                    </div>  
+                </div>
+                
+            </div>
+
+        </div>
+        </div>
+    </header>
+    <script src="./js/jquery.js"></script>
+    <script src="./js/popover.js"></script>
+    <script src="./js/bootstrap.min.js"></script>
+    <script >
+        var InfoCar=[
+            {
+                name:"Matiz",
+                position:'2',
+                year:'2018',
+                madeIn:"GM Uzbekistan",
+                color:'white  black lightblue grey',
+                price:6000,
+                info:" Yengil hamda ko’rkam, avtomobil shinamgina salon va bejirim tashqi ko‘rinishga ega. O‘zining ixchamgina o‘lchamlari va boshqariluvchanligi tufayli unga har qanday tirbandliklar qo‘rqinchli emas. 0,8 va 1 l xajmli dvigatelning tejamkorligi tufayli Matiz bor-yo‘g‘i bir litr yonilg‘i bilan 22,2 km masofani bosib o‘tishga qodir. Xohishingizga ko‘ra, Matiz avtomat yoki mexanik uzatmalar qutisi bilan jihozlanishi mumkin. Vakuumli kuchaytirgichga ega 7 dyuymli ishonchli tormoz avtomobilning har qanday shoshilinch holatlarda ham tezkor to‘xtay olishini kafolatlaydi.", 
+            },
+            {
+                name:"Damas",
+                position:'2',
+                year:'2019',
+                madeIn:"GM Uzbekistan",
+                color:'white  black  grey',
+                price:7800,
+                info:" Yengil hamda ko’rkam, avtomobil shinamgina salon va bejirim tashqi ko‘rinishga ega. O‘zining ixchamgina o‘lchamlari va boshqariluvchanligi tufayli unga har qanday tirbandliklar qo‘rqinchli emas. 0,8 va 1 l xajmli dvigatelning tejamkorligi tufayli Matiz bor-yo‘g‘i bir litr yonilg‘i bilan 22,2 km masofani bosib o‘tishga qodir. Xohishingizga ko‘ra, Matiz avtomat yoki mexanik uzatmalar qutisi bilan jihozlanishi mumkin. Vakuumli kuchaytirgichga ega 7 dyuymli ishonchli tormoz avtomobilning har qanday shoshilinch holatlarda ham tezkor to‘xtay olishini kafolatlaydi.",
+                
+            },
+            {
+                name:"Spark",
+                position:'3',
+                year:'2020',
+                madeIn:"GM Uzbekistan",
+                color:'white  black lightblue grey',
+                price:8000,
+                info:" Yengil hamda ko’rkam, avtomobil shinamgina salon va bejirim tashqi ko‘rinishga ega. O‘zining ixchamgina o‘lchamlari va boshqariluvchanligi tufayli unga har qanday tirbandliklar qo‘rqinchli emas. 0,8 va 1 l xajmli dvigatelning tejamkorligi tufayli Matiz bor-yo‘g‘i bir litr yonilg‘i bilan 22,2 km masofani bosib o‘tishga qodir. Xohishingizga ko‘ra, Matiz avtomat yoki mexanik uzatmalar qutisi bilan jihozlanishi mumkin. Vakuumli kuchaytirgichga ega 7 dyuymli ishonchli tormoz avtomobilning har qanday shoshilinch holatlarda ham tezkor to‘xtay olishini kafolatlaydi.",
+                
+            },
+            {
+                name:"Cobalt",
+                position:'2',
+                year:'2018',
+                madeIn:"GM Uzbekistan",
+                color:'white  black lightblue grey',
+                price:8500,
+                info:" Yengil hamda ko’rkam, avtomobil shinamgina salon va bejirim tashqi ko‘rinishga ega. O‘zining ixchamgina o‘lchamlari va boshqariluvchanligi tufayli unga har qanday tirbandliklar qo‘rqinchli emas. 0,8 va 1 l xajmli dvigatelning tejamkorligi tufayli Matiz bor-yo‘g‘i bir litr yonilg‘i bilan 22,2 km masofani bosib o‘tishga qodir. Xohishingizga ko‘ra, Matiz avtomat yoki mexanik uzatmalar qutisi bilan jihozlanishi mumkin. Vakuumli kuchaytirgichga ega 7 dyuymli ishonchli tormoz avtomobilning har qanday shoshilinch holatlarda ham tezkor to‘xtay olishini kafolatlaydi.",
+                
+            },
+            {
+                name:"Lacetti",
+                position:'3',
+                year:'2019',
+                madeIn:"GM Uzbekistan",
+                color:'white  black lightblue grey',
+                price:9000,
+                info:" Yengil hamda ko’rkam, avtomobil shinamgina salon va bejirim tashqi ko‘rinishga ega. O‘zining ixchamgina o‘lchamlari va boshqariluvchanligi tufayli unga har qanday tirbandliklar qo‘rqinchli emas. 0,8 va 1 l xajmli dvigatelning tejamkorligi tufayli Matiz bor-yo‘g‘i bir litr yonilg‘i bilan 22,2 km masofani bosib o‘tishga qodir. Xohishingizga ko‘ra, Matiz avtomat yoki mexanik uzatmalar qutisi bilan jihozlanishi mumkin. Vakuumli kuchaytirgichga ega 7 dyuymli ishonchli tormoz avtomobilning har qanday shoshilinch holatlarda ham tezkor to‘xtay olishini kafolatlaydi.",
+                
+            },
+            {
+                name:"Gentra",
+                position:'3',
+                year:'2020',
+                madeIn:"GM Uzbekistan",
+                color:'white  black lightblue grey',
+                price:10000,
+                info:" Yengil hamda ko’rkam, avtomobil shinamgina salon va bejirim tashqi ko‘rinishga ega. O‘zining ixchamgina o‘lchamlari va boshqariluvchanligi tufayli unga har qanday tirbandliklar qo‘rqinchli emas. 0,8 va 1 l xajmli dvigatelning tejamkorligi tufayli Matiz bor-yo‘g‘i bir litr yonilg‘i bilan 22,2 km masofani bosib o‘tishga qodir. Xohishingizga ko‘ra, Matiz avtomat yoki mexanik uzatmalar qutisi bilan jihozlanishi mumkin. Vakuumli kuchaytirgichga ega 7 dyuymli ishonchli tormoz avtomobilning har qanday shoshilinch holatlarda ham tezkor to‘xtay olishini kafolatlaydi.",
+                
+            },
+            {
+                name:"Tricker",
+                position:'2',
+                year:'2018',
+                madeIn:"GM Uzbekistan",
+                color:'white  black lightblue grey',
+                price:10000,
+                info:" Yengil hamda ko’rkam, avtomobil shinamgina salon va bejirim tashqi ko‘rinishga ega. O‘zining ixchamgina o‘lchamlari va boshqariluvchanligi tufayli unga har qanday tirbandliklar qo‘rqinchli emas. 0,8 va 1 l xajmli dvigatelning tejamkorligi tufayli Matiz bor-yo‘g‘i bir litr yonilg‘i bilan 22,2 km masofani bosib o‘tishga qodir. Xohishingizga ko‘ra, Matiz avtomat yoki mexanik uzatmalar qutisi bilan jihozlanishi mumkin. Vakuumli kuchaytirgichga ega 7 dyuymli ishonchli tormoz avtomobilning har qanday shoshilinch holatlarda ham tezkor to‘xtay olishini kafolatlaydi.",
+                
+            },
+            {
+                name:"Captiva",
+                position:'4',
+                year:'2021',
+                madeIn:"GM Uzbekistan",
+                color:'white  black lightblue grey',
+                price:22000,
+                info:" Yengil hamda ko’rkam, avtomobil shinamgina salon va bejirim tashqi ko‘rinishga ega. O‘zining ixchamgina o‘lchamlari va boshqariluvchanligi tufayli unga har qanday tirbandliklar qo‘rqinchli emas. 0,8 va 1 l xajmli dvigatelning tejamkorligi tufayli Matiz bor-yo‘g‘i bir litr yonilg‘i bilan 22,2 km masofani bosib o‘tishga qodir. Xohishingizga ko‘ra, Matiz avtomat yoki mexanik uzatmalar qutisi bilan jihozlanishi mumkin. Vakuumli kuchaytirgichga ega 7 dyuymli ishonchli tormoz avtomobilning har qanday shoshilinch holatlarda ham tezkor to‘xtay olishini kafolatlaydi.",
+                
+            },
+            {
+                name:"Malibu",
+                position:'3',
+                year:'2020',
+                madeIn:"GM Uzbekistan",
+                color:'white  black lightblue grey',
+                price:22000,
+                info:" Yengil hamda ko’rkam, avtomobil shinamgina salon va bejirim tashqi ko‘rinishga ega. O‘zining ixchamgina o‘lchamlari va boshqariluvchanligi tufayli unga har qanday tirbandliklar qo‘rqinchli emas. 0,8 va 1 l xajmli dvigatelning tejamkorligi tufayli Matiz bor-yo‘g‘i bir litr yonilg‘i bilan 22,2 km masofani bosib o‘tishga qodir. Xohishingizga ko‘ra, Matiz avtomat yoki mexanik uzatmalar qutisi bilan jihozlanishi mumkin. Vakuumli kuchaytirgichga ega 7 dyuymli ishonchli tormoz avtomobilning har qanday shoshilinch holatlarda ham tezkor to‘xtay olishini kafolatlaydi.",
+                
+            },
+            {
+                name:"Tahoe",
+                position:'1',
+                year:'2020',
+                madeIn:"GM Uzbekistan",
+                color:'white  black lightblue grey',
+                price:34000,
+                info:" Yengil hamda ko’rkam, avtomobil shinamgina salon va bejirim tashqi ko‘rinishga ega. O‘zining ixchamgina o‘lchamlari va boshqariluvchanligi tufayli unga har qanday tirbandliklar qo‘rqinchli emas. 0,8 va 1 l xajmli dvigatelning tejamkorligi tufayli Matiz bor-yo‘g‘i bir litr yonilg‘i bilan 22,2 km masofani bosib o‘tishga qodir. Xohishingizga ko‘ra, Matiz avtomat yoki mexanik uzatmalar qutisi bilan jihozlanishi mumkin. Vakuumli kuchaytirgichga ega 7 dyuymli ishonchli tormoz avtomobilning har qanday shoshilinch holatlarda ham tezkor to‘xtay olishini kafolatlaydi.",
+                
+            },
+            {
+                name:"TravilBlazer",
+                position:'1',
+                year:'2020',
+                madeIn:"GM Uzbekistan",
+                color:'white  black',
+                price:43000,
+                info:" Yengil hamda ko’rkam, avtomobil shinamgina salon va bejirim tashqi ko‘rinishga ega. O‘zining ixchamgina o‘lchamlari va boshqariluvchanligi tufayli unga har qanday tirbandliklar qo‘rqinchli emas. 0,8 va 1 l xajmli dvigatelning tejamkorligi tufayli Matiz bor-yo‘g‘i bir litr yonilg‘i bilan 22,2 km masofani bosib o‘tishga qodir. Xohishingizga ko‘ra, Matiz avtomat yoki mexanik uzatmalar qutisi bilan jihozlanishi mumkin. Vakuumli kuchaytirgichga ega 7 dyuymli ishonchli tormoz avtomobilning har qanday shoshilinch holatlarda ham tezkor to‘xtay olishini kafolatlaydi.",
+                
+            },
+            {
+                name:"Traverse",
+                position:'1',
+                year:'2020',
+                madeIn:"GM Uzbekistan",
+                color:'white  black lightblue grey',
+                price:45000,
+                info:" Yengil hamda ko’rkam, avtomobil shinamgina salon va bejirim tashqi ko‘rinishga ega. O‘zining ixchamgina o‘lchamlari va boshqariluvchanligi tufayli unga har qanday tirbandliklar qo‘rqinchli emas. 0,8 va 1 l xajmli dvigatelning tejamkorligi tufayli Matiz bor-yo‘g‘i bir litr yonilg‘i bilan 22,2 km masofani bosib o‘tishga qodir. Xohishingizga ko‘ra, Matiz avtomat yoki mexanik uzatmalar qutisi bilan jihozlanishi mumkin. Vakuumli kuchaytirgichga ega 7 dyuymli ishonchli tormoz avtomobilning har qanday shoshilinch holatlarda ham tezkor to‘xtay olishini kafolatlaydi.",
+                
+            },
+            {
+                name:"Equinux",
+                position:'1',
+                year:'2021',
+                madeIn:"GM Uzbekistan",
+                color:'white  black lightblue grey',
+                price:54000,
+                info:" Yengil hamda ko’rkam, avtomobil shinamgina salon va bejirim tashqi ko‘rinishga ega. O‘zining ixchamgina o‘lchamlari va boshqariluvchanligi tufayli unga har qanday tirbandliklar qo‘rqinchli emas. 0,8 va 1 l xajmli dvigatelning tejamkorligi tufayli Matiz bor-yo‘g‘i bir litr yonilg‘i bilan 22,2 km masofani bosib o‘tishga qodir. Xohishingizga ko‘ra, Matiz avtomat yoki mexanik uzatmalar qutisi bilan jihozlanishi mumkin. Vakuumli kuchaytirgichga ega 7 dyuymli ishonchli tormoz avtomobilning har qanday shoshilinch holatlarda ham tezkor to‘xtay olishini kafolatlaydi.",
+                
+            },
+            {
+                name:"Zil",
+                position:'3',
+                year:'2016',
+                madeIn:"GM Uzbekistan",
+                color:'white  black lightblue grey',
+                price:5000,
+                info:" Yengil hamda ko’rkam, avtomobil shinamgina salon va bejirim tashqi ko‘rinishga ega. O‘zining ixchamgina o‘lchamlari va boshqariluvchanligi tufayli unga har qanday tirbandliklar qo‘rqinchli emas. 0,8 va 1 l xajmli dvigatelning tejamkorligi tufayli Matiz bor-yo‘g‘i bir litr yonilg‘i bilan 22,2 km masofani bosib o‘tishga qodir. Xohishingizga ko‘ra, Matiz avtomat yoki mexanik uzatmalar qutisi bilan jihozlanishi mumkin. Vakuumli kuchaytirgichga ega 7 dyuymli ishonchli tormoz avtomobilning har qanday shoshilinch holatlarda ham tezkor to‘xtay olishini kafolatlaydi.",
+                
+            },
+            {
+                name:"Isuze",
+                position:'2',
+                year:'2017',
+                madeIn:"GM Uzbekistan",
+                color:'white  black lightblue grey',
+                price:8000,
+                info:" Yengil hamda ko’rkam, avtomobil shinamgina salon va bejirim tashqi ko‘rinishga ega. O‘zining ixchamgina o‘lchamlari va boshqariluvchanligi tufayli unga har qanday tirbandliklar qo‘rqinchli emas. 0,8 va 1 l xajmli dvigatelning tejamkorligi tufayli Matiz bor-yo‘g‘i bir litr yonilg‘i bilan 22,2 km masofani bosib o‘tishga qodir. Xohishingizga ko‘ra, Matiz avtomat yoki mexanik uzatmalar qutisi bilan jihozlanishi mumkin. Vakuumli kuchaytirgichga ega 7 dyuymli ishonchli tormoz avtomobilning har qanday shoshilinch holatlarda ham tezkor to‘xtay olishini kafolatlaydi.",
+                
+            },
+            {
+                name:"Man",
+                position:'2',
+                year:'2017',
+                madeIn:"GM Uzbekistan",
+                color:'white  black lightblue grey',
+                price:100000,
+                info:" Yengil hamda ko’rkam, avtomobil shinamgina salon va bejirim tashqi ko‘rinishga ega. O‘zining ixchamgina o‘lchamlari va boshqariluvchanligi tufayli unga har qanday tirbandliklar qo‘rqinchli emas. 0,8 va 1 l xajmli dvigatelning tejamkorligi tufayli Matiz bor-yo‘g‘i bir litr yonilg‘i bilan 22,2 km masofani bosib o‘tishga qodir. Xohishingizga ko‘ra, Matiz avtomat yoki mexanik uzatmalar qutisi bilan jihozlanishi mumkin. Vakuumli kuchaytirgichga ega 7 dyuymli ishonchli tormoz avtomobilning har qanday shoshilinch holatlarda ham tezkor to‘xtay olishini kafolatlaydi.",
+                
+            },
+            {
+                name:"Kamaz",
+                position:'2',
+                year:'2017',
+                madeIn:"GM Uzbekistan",
+                color:'white  black lightblue grey',
+                price:10000,
+                info:" Yengil hamda ko’rkam, avtomobil shinamgina salon va bejirim tashqi ko‘rinishga ega. O‘zining ixchamgina o‘lchamlari va boshqariluvchanligi tufayli unga har qanday tirbandliklar qo‘rqinchli emas. 0,8 va 1 l xajmli dvigatelning tejamkorligi tufayli Matiz bor-yo‘g‘i bir litr yonilg‘i bilan 22,2 km masofani bosib o‘tishga qodir. Xohishingizga ko‘ra, Matiz avtomat yoki mexanik uzatmalar qutisi bilan jihozlanishi mumkin. Vakuumli kuchaytirgichga ega 7 dyuymli ishonchli tormoz avtomobilning har qanday shoshilinch holatlarda ham tezkor to‘xtay olishini kafolatlaydi.",
+                
+            },
+            
+
+        ]
+        $(document).ready(function(){
+            
+          $('body').css({
+              background:'#f1f1f1'
+          }) 
+          $('.title').css(
+              {
+                  color:'yellowgreen'
+              }
+          )
+          
+          $('.RandNum').click(function(){
+              for(let i=1; i<$('#nomer option').length; i++){
+                var son= Math.floor(Math.random()*1000+1)
+                if(son<10){
+                        $('#nomer option')[i].textContent="0"+`${son*10}`
+                        $('#nomer option')[i].value="0"+`${son*10}`
+                }
+                else if(son<100){
+                    if(son%10===Math.floor(son/10)){
+                        son+=1;
+                        $('#nomer option')[i].textContent="0"+`${son}`
+                        $('#nomer option')[i].value="0"+`${son}`
+                    }
+                    else{
+                        $('#nomer option')[i].textContent="0"+`${son}`
+                        $('#nomer option')[i].value="0"+`${son}`
+                    }
+                }
+                else{
+                    if(Math.floor(son/100)===son%10 && Math.floor(son/10%10)==son%10 && Math.floor (son/10%10)===Math.floor(son/100)){
+                        son-=1;
+                        $('#nomer option')[i].textContent=son;
+                        $('#nomer option')[i].value=son;
+                    }
+                    else{
+                        $('#nomer option')[i].textContent=son
+                        $('#nomer option')[i].value=son
+                    }
+                }
+                
+               console.log($('#nomer option')[i].value)
+              }
+            
+          })
+        })
+        $('.bestNum').click(function(){
+            var bestNum=['---','777','111','222','333','444','555','666','888','999','000','001','002','003','004','005','006','007','008','009' ,'123']
+            for(let i=0 ; i <$('#nomer option').length;i++){
+                $('#nomer option')[i].value=bestNum[i];
+                $('#nomer option')[i].textContent=bestNum[i];
+            }
+        })
+        var isPeople="";
+        $('.form-inline input').click(function(){
+            for(let i=0; i<$('.form-inline input').length; i++){
+                if($('.form-inline input')[i].checked===true){
+                    isPeople=`#code${$('.form-inline input')[i].id}`
+                   $(`#code${$('.form-inline input')[i].id}`).removeClass('d-none')
+                }
+                else{
+                    $(`#code${$('.form-inline input')[i].id}`).addClass('d-none')
+                   
+                }
+              
+            } 
+            $('.code2').text('_ _')  
+            $(`${isPeople} option`)[0].selected=true      
+            $(`${isPeople}`).change(function(){
+                for(let i=0; i<$(` ${isPeople} option`).length; i++){
+                    if($(`${isPeople} option`)[i].selected===true){
+                        $('.code2').text($(`${isPeople} option`)[i].value)
+                    }
+                }
+                
+            })      
+        })
+       
+        $('.form-inline select').change(function(){
+                
+        })
+
+        $('#region').change(function(){
+            
+            var reg;
+           for(let i=0; i<$('#region option').length;i++){
+               if($('#region option')[i].selected===true){
+                   switch($('#region option')[i].value){
+                       case "Toshkent": reg="01"; break;
+                       case "ToshkentVil": reg="10"; break;
+                       case "Sirdaryo": reg="20"; break;
+                       case "Jizzax": reg="25"; break;
+                       case "Samarqand": reg="30"; break;
+                       case "Farg'ona": reg="40"; break;
+                       case "Namangan": reg="50"; break;
+                       case "Andijon": reg="60"; break;
+                       case "Qashqadaryo": reg="70"; break;
+                       case "Surxandaryo": reg="75"; break;
+                       case "Buxoro": reg="80"; break;
+                       case "Navoiy": reg="85"; break;
+                       case "Xorazm": reg="90"; break;
+                       case "Qaraqalpog'iston": reg="95"; break;
+                       default : reg="XXX"; break; 
+                   }
+                   console.log(reg)
+                   console.log( $('#reg'))
+                   $('#reg').val(reg);
+                   $('#reg').text(reg);
+                  
+               }
+           }
+
+        })
+        $('#cars').change(function(){
+            for(let i=0; i<$('#cars option').length;i++){
+                if($('#cars option')[i].selected===true){
+                    $('.carName').text($('#cars option')[i].value)
+                    $('#carImg img')[0].src=`./images/${$('#cars option')[i].value}.jpg`
+                }
+            }   
+            for(let i=0; i<InfoCar.length;i++){
+                if($('.carName').text()===InfoCar[i].name){
+                    $('.carname').text(InfoCar[i].name);
+                    $('.carPos').text(InfoCar[i].position);
+                    $('.carYear').text(InfoCar[i].year);
+                    $('.carMade').text(InfoCar[i].madeIn);
+                    $('.carColor').text(InfoCar[i].color);
+                    $('.carPrice').text(`${InfoCar[i].price}$`);
+                    $('.carInfo').text(InfoCar[i].info);
+                }
+            }
+        })
+        $('#nomer').click(function(){
+            $('.numberCar').text('_ _ _')
+            for(let i=0; i<$('#nomer option').length;i++){
+                if($('#nomer option')[i].selected===true){
+                    $('.numberCar').text($('#nomer option')[i].value)
+                   var num1=Math.floor(Math.random() * (90 - 65) + 65);
+                   $('#num1').text(String.fromCharCode(num1) );
+                }
+            }
+            
+        })
+        
+   </script>
+</body>
+</html>
